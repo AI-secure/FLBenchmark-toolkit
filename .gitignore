@@ -1,0 +1,11 @@
+*.pyc
+/data/
+/csv_data/
+/tmp/
+/build/
+/dist/
+/flbenchmark.egg-info/
+/.vscode/
+/log/
+/tutorials/**/data/
+/tutorials/**/log/

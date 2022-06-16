@@ -1,0 +1,23 @@
+{
+    "framework": "crypten",
+    "dataset": "breast_vertical",
+    "algorithm": "mpc",
+    "model": "mlp_128",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "epochs": 8,
+        "batch_size": 100,
+        "learning_rate": 0.1,
+        "loss_func": "cross_entropy",
+        "optimizer": "sgd",
+        "optimizer_param": {
+            "momentum": 0.9,
+            "dampening": 0,
+            "weight_decay": 0,
+            "nesterov": false
+        }
+    }
+}
