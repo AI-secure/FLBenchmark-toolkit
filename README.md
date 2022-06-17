@@ -1,4 +1,4 @@
-# Federated Learning Benchmark (flbenchmark)
+# Federated Learning Framework Benchmark (flbenchmark)
 
 # Installation
 ## Requirements
