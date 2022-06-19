@@ -1,6 +1,6 @@
 # Federated Learning Framework Benchmark (flbenchmark)
 
-**🌟For the benchmark result, please check our [website](https://unifedbenchmark.github.io/).👈👈👈**
+**🌟For the benchmark result📊, please check our [website](https://unifedbenchmark.github.io/).👈👈👈**
 
 ![image](https://user-images.githubusercontent.com/23360163/174420954-9735b5e8-4f61-45bc-8cee-d878548d1035.png)
 
