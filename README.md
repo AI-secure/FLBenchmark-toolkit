@@ -1,4 +1,4 @@
-# Federated Learning Framework Benchmark (flbenchmark)
+# Federated Learning Framework Benchmark (UniFed)
 
 **🌟For the benchmark result📊, please check our [website](https://unifedbenchmark.github.io/).👈👈👈**
 
