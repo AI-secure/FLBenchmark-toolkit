@@ -1,0 +1,13 @@
+{
+    "framework": "custom:demo",
+    "dataset": "breast_vertical",
+    "algorithm": "demo",
+    "model": "demo",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "epochs": 10
+    }
+}

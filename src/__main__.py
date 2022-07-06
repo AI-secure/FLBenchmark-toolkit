@@ -203,6 +203,30 @@ def start(config_file):
                 raise NotImplementedError('Device {} is not supported.'.format(config['bench_param']['device']))
         else:
             raise NotImplementedError('Mode {} is not supported.'.format(config['bench_param']['mode']))
+    elif config['framework'].startswith('custom:'):
+        if config['bench_param']['mode'] == 'local':
+            if config['bench_param']['device'] == 'cpu':
+                bash_cmd = docker_cmd+'-v {}:/data -v {}:/test/log -v {}:/test/config.json flbenchmark/{}'.format(
+                    raw_data_dir, raw_log_dir, raw_config_file, config['framework'])
+            elif config['bench_param']['device'] == 'gpu':
+                bash_cmd = docker_cmd+'-v {}:/data -v {}:/test/log -v {}:/test/config.json flbenchmark/{}'.format(
+                    raw_data_dir, raw_log_dir, raw_config_file, config['framework'])
+            else:
+                raise NotImplementedError('Device {} is not supported.'.format(config['bench_param']['device']))
+        elif config['bench_param']['mode'] == 'remote':
+            for host in config['bench_param']['hosts']:
+                if config['bench_param']['device'] == 'cpu':
+                    remote_bash_cmd = docker_cmd+'--net=host -v {}:/data -v {}:/test/log -v {}:/test/config.json flbenchmark/{}'.format(
+                        raw_data_dir, raw_log_dir, raw_config_file, config['framework'])
+                elif config['bench_param']['device'] == 'gpu':
+                    remote_bash_cmd = docker_cmd+'--net=host -v {}:/data -v {}:/test/log -v {}:/test/config.json flbenchmark/{}'.format(
+                        raw_data_dir, raw_log_dir, raw_config_file, config['framework'])
+                else:
+                    raise NotImplementedError('Device {} is not supported.'.format(config['bench_param']['device']))
+                remote_run(host['hostname'], remote_bash_cmd)
+            print('The benchmark has started, and you can use `python -m flbenchmark get_report {}` to query the report.'.format(id))
+        else:
+            raise NotImplementedError('Mode {} is not supported.'.format(config['bench_param']['mode']))
     else:
         raise NotImplementedError('Framework {} is not supported.'.format(config['framework']))
 
@@ -242,6 +266,8 @@ def prepare_dataset(dataset_name):
 
 
 def prepare_framework_image(framework_name):
+    if framework_name.startswith('custom:'):
+        return
     print('Pulling framework image {}'.format(framework_name))
     bash_cmd = 'docker pull flbenchmark/frameworks:{}'.format(framework_name)
     subprocess.run(bash_cmd, shell=True, check=True)

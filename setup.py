@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='flbenchmark',
-    version='0.1.1',
+    version='0.1.2',
     description='flbenchmark',
     author='stneng',
     author_email='git@stneng.com',
