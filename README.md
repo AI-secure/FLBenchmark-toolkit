@@ -65,7 +65,6 @@ There are the example configuration files for different frameworks in the ```tut
   - [ ] OpenFL
   - [ ] FLSim
   - [ ] Fed-BioMed
-  - [ ] Substra
   - [ ] OpenFed
 - Add more scenarios
   - [ ] larger-scale datasets (e.g. (Tiny)ImageNet) and control the heterogeneity with Dirichlet distribution
