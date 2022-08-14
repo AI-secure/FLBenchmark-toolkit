@@ -57,3 +57,21 @@ There are the example configuration files for different frameworks in the ```tut
 | motor_vertical | Sensor data | Regression <br> (Temperature Estimation) | MSE | A: 4 features 1 label <br> B: 7 features |
 | student_vertical | Tabular | Regression <br> (Grade Estimation) | MSE | A: 6 features 1 label <br> B: 7 features |
 | vehicle_scale_vertical | Image | Multiclass Classification <br> (4 classes) | Accuracy | A: 9 features 1 label <br> B: 9 features |
+
+# Maintenance Plans
+- Add more frameworks
+  - [x] FedScale
+  - [x] FederatedScope
+  - [ ] OpenFL
+  - [ ] FLSim
+  - [ ] Fed-BioMed
+  - [ ] Substra
+  - [ ] OpenFed
+- Add more scenarios
+  - [ ] larger-scale datasets (e.g. (Tiny)ImageNet) and control the heterogeneity with Dirichlet distribution
+  - [ ] speech (e.g. SpeechCommands)
+  - [ ] sensor data (e.g. HAR)
+  - [ ] recommenders (e.g. TaoBao)
+
+# License
+This project is licensed under Apache License Version 2.0. By contributing to the project, you agree to the license and copyright terms therein and release your contribution under these terms.
