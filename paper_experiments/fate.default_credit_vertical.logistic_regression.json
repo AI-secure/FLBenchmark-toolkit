@@ -1,0 +1,25 @@
+{
+    "framework": "fate",
+    "dataset": "default_credit_vertical",
+    "algorithm": "hetero-lr",
+    "model": "logistic_regression",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "max_iter": 10,
+        "batch_size": 128,
+        "learning_rate": 0.01,
+        "penalty": "L2",
+        "optimizer": "sgd",
+        "alpha": 0.01,
+        "early_stop": "diff",
+        "init_param": {
+            "init_method": "random_uniform"
+        },
+        "encrypt_param": {
+            "method": "Paillier"
+        }
+    }
+}

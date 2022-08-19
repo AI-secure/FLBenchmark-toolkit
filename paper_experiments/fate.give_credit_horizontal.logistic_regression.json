@@ -1,0 +1,25 @@
+{
+    "framework": "fate",
+    "dataset": "give_credit_horizontal",
+    "algorithm": "homo-lr",
+    "model": "logistic_regression",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "max_iter": 30,
+        "batch_size": 64,
+        "learning_rate": 0.01,
+        "penalty": "L2",
+        "optimizer": "sgd",
+        "alpha": 0.01,
+        "early_stop": "diff",
+        "init_param": {
+            "init_method": "random_uniform"
+        },
+        "encrypt_param": {
+            "method": "Paillier"
+        }
+    }
+}

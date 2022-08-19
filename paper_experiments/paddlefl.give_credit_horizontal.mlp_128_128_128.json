@@ -1,0 +1,25 @@
+{
+    "framework": "paddlefl",
+    "dataset": "give_credit_horizontal",
+    "algorithm": "fedavg",
+    "model": "mlp_128_128_128",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "epochs": 30,
+        "batch_size": 64,
+        "learning_rate": 0.01,
+        "loss_func": "cross_entropy",
+        "optimizer": "sgd",
+        "inner_step": 1,
+        "client_per_round": 2,
+        "optimizer_param": {
+            "momentum": 0.9,
+            "dampening": 0,
+            "weight_decay": 0,
+            "nesterov": false
+        }
+    }
+}

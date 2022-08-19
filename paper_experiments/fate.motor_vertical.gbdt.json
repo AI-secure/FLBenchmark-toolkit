@@ -1,0 +1,24 @@
+{
+    "framework": "fate",
+    "dataset": "motor_vertical",
+    "algorithm": "hetero-secureboost",
+    "model": "gbdt",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "learning_rate": 0.05,
+        "tree_param": {
+            "num_trees": 64,
+            "task_type": "regression",
+            "objective_param": {
+                "objective": "lse"
+            },
+            "tree_param": {
+                "max_depth": 6
+            },
+            "bin_num": 64
+        }
+    }
+}

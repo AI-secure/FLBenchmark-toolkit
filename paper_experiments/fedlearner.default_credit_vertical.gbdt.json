@@ -1,0 +1,18 @@
+{
+    "framework": "fedlearner",
+    "dataset": "default_credit_vertical",
+    "algorithm": "hetero",
+    "model": "gbdt",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "epochs": 64,
+        "learning_rate": 0.05,
+        "tree_param": {
+            "max_bins": 64,
+            "max_depth": 6
+        }
+    }
+}

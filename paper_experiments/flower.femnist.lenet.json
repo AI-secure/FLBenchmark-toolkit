@@ -1,0 +1,21 @@
+{
+    "framework": "flower",
+    "dataset": "femnist",
+    "algorithm": "fedavg",
+    "model": "lenet",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "epochs": 2000,
+        "batch_size": 8,
+        "learning_rate": 0.001,
+        "client_fraction_per_iteration": 0.113,
+        "loss_func": "cross_entropy",
+        "optimizer": "sgd",
+        "optimizer_param": {
+            "momentum": 0.9
+        }
+    }
+}
