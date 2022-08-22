@@ -24,13 +24,48 @@ Run this command in the project's home directory: ```pip install .```
 
 # Tutorials
 There are comprehensive tutorials in the ```tutorials``` directory, and it's recommended to start notebooks in the ```tutorials``` directory.
+- [How to start a benchmark with one command](tutorials/benchmark)
+- [How to load datasets from our toolkit](tutorials/1.How_to_set_up_datasets.ipynb)
+- [How to convert datasets to csv format](tutorials/2.Convert_to_csv.ipynb)
+- [How to use our logging system and get the report](tutorials/logging)
+- [How to support a custom framework](tutorials/how_to_support_a_custom_framework)
 
 ## Quick start
 One command to start the evaluation
 ```
 python -m flbenchmark tutorials/benchmark/config.json
 ```
-There are the example configuration files for different frameworks in the ```tutorials/benchmark/example-config``` directory, feel free to open an issue in this repo if you encounter any problems.
+Note: This command will automatically download the docker images of the corresponding framework from [our repo in Docker Hub](https://hub.docker.com/r/flbenchmark/frameworks/tags).
+
+Here are the details about this configuration file.
+```
+{
+    "framework": "crypten",
+    "dataset": "breast_vertical",
+    "algorithm": "mpc",
+    "model": "mlp_128",
+    "bench_param": {
+        "mode": "local",
+        "device": "cpu"
+    },
+    "training_param": {
+        "epochs": 8,
+        "batch_size": 100,
+        "learning_rate": 0.1,
+        "loss_func": "cross_entropy",
+        "optimizer": "sgd",
+        "optimizer_param": {
+            "momentum": 0.9,
+            "dampening": 0,
+            "weight_decay": 0,
+            "nesterov": false
+        }
+    }
+}
+```
+There are more example configuration files for different frameworks in [tutorials/benchmark/example-config](tutorials/benchmark/example-config).  
+The configuration files for the experiments in the paper are in [paper_experiments](paper_experiments).  
+Feel free to open an issue in this repo if you encounter any problems.
 
 # Evaluation Scenarios
 ## Cross-device horizontal

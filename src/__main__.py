@@ -203,6 +203,30 @@ def start(config_file):
                 raise NotImplementedError('Device {} is not supported.'.format(config['bench_param']['device']))
         else:
             raise NotImplementedError('Mode {} is not supported.'.format(config['bench_param']['mode']))
+    elif config['framework'] == 'federatedscope':
+        if config['bench_param']['mode'] == 'local':
+            if config['bench_param']['device'] == 'cpu':
+                bash_cmd = docker_cmd+'-v {}:/data -v {}:/FederatedScope/log -v {}:/test/config.json flbenchmark/frameworks:federatedscope'.format(
+                    raw_data_dir, raw_log_dir, raw_config_file)
+            elif config['bench_param']['device'] == 'gpu':
+                bash_cmd = docker_cmd+'-v {}:/data -v {}:/FederatedScope/log -v {}:/test/config.json flbenchmark/frameworks:federatedscope'.format(
+                    raw_data_dir, raw_log_dir, raw_config_file)
+            else:
+                raise NotImplementedError('Device {} is not supported.'.format(config['bench_param']['device']))
+        else:
+            raise NotImplementedError('Mode {} is not supported.'.format(config['bench_param']['mode']))
+    elif config['framework'] == 'fedscale':
+        if config['bench_param']['mode'] == 'local':
+            if config['bench_param']['device'] == 'cpu':
+                bash_cmd = docker_cmd+'-v {}:/data -v {}:/FedScale/log -v {}:/FedScale/config.json flbenchmark/frameworks:fedscale'.format(
+                    raw_data_dir, raw_log_dir, raw_config_file)
+            elif config['bench_param']['device'] == 'gpu':
+                bash_cmd = docker_cmd+'-v {}:/data -v {}:/FedScale/log -v {}:/FedScale/config.json flbenchmark/frameworks:fedscale'.format(
+                    raw_data_dir, raw_log_dir, raw_config_file)
+            else:
+                raise NotImplementedError('Device {} is not supported.'.format(config['bench_param']['device']))
+        else:
+            raise NotImplementedError('Mode {} is not supported.'.format(config['bench_param']['mode']))
     elif config['framework'].startswith('custom:'):
         if config['bench_param']['mode'] == 'local':
             if config['bench_param']['device'] == 'cpu':
