@@ -1,0 +1,32 @@
+{
+    "framework": "crypten",
+    "algorithm": "mpc",
+    "training": {
+        "global_epochs": 10,
+        "batch_size": 128,
+        "learning_rate": 0.01,
+        "loss_func": "cross_entropy",
+        "optimizer": "sgd",
+        "optimizer_param": {
+            "momentum": 0.9,
+            "dampening": 0,
+            "weight_decay": 0,
+            "nesterov": false
+        }
+    },
+    "dataset": "default_credit_vertical",
+    "model": "mlp_128_128_128",
+    "deployment": {
+        "mode": "colink",
+        "participants": [
+            {
+                "user_id": "02b6b0f0c03f8c7451fa16aaecef8d03328a7211bddfb7fbe1eb9a027a5dc3b577",
+                "role": "client"
+            },
+            {
+                "user_id": "023cd56c77ad683a3d2d39f748a65e03ac27b848b49bc550c1ab53c4308b0fbe5d",
+                "role": "client"
+            }
+        ]
+    }
+}

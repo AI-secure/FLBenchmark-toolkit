@@ -14,13 +14,43 @@ You can set up a sandboxed python environment by conda easily: ```conda create -
 - [Docker Engine](https://docs.docker.com/engine/)
 - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) if you want to use GPU.
 
-## From PyPI
+## Install From PyPI
 ```
 pip install flbenchmark colink
 ```
 
+# Launch a benchmark (manual deployment)
 ## Set up servers
+We highly recommend to use Ubuntu 20.04 LTS.
+- Download [install.sh](server-setup/install.sh) on home directory.
+- Change `SERVER_IP="172.16.1.1"` in [install.sh](server-setup/install.sh) to corresponding server ip.
+- Execute [install.sh](server-setup/install.sh).
+- Record all servers' ip and `~/server/host_token.txt` in the following json format.
+```json
+{
+    "test-0": [
+        "http://172.31.4.48:80",
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwcml2aWxlZ2UiOiJob3N0IiwidXNlcl9pZCI6IjAyMGJhNzkyNzk0ZTlmMWUwZWZmNTEyOGM4NDdjZmE0MmRlNTllY2I1ODM4MzU4MDBmN2QwMzM1Yzg2YWFjZTViOSIsImV4cCI6MTY4OTM0ODAyM30.UP5JUYdbL-MkZDTSVuBHnIHoun1VkfcRgsBLV119v6A"
+    ],
+    "test-1": [
+        "http://172.31.15.143:80",
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwcml2aWxlZ2UiOiJob3N0IiwidXNlcl9pZCI6IjAyNzJhNjgxNDg0NDMwNTFmZTI2NDFlYmZiNjM2MDgxODM5YmQ5NDdkZGFhNTcwYjY3MjU0MTI2NjU5YzBmZjVjYSIsImV4cCI6MTY4OTM0ODAzNH0.2HHQYzcMjif0ZkhSyltlOSC1ydsgWS8H_no5wWvohw0"
+    ]
+}
+```
 
+## Set up the framework
+- Change the working directory to [exp](exp) for later steps.
+- Put the json file about servers from last step to [exp/server_list.json](exp/server_list.json).
+- Register users via `python register_users.py` and record the user id for later use.
+- Launch corresponding frameworks `./start_po.a unifed.crypten https://github.com/CoLearn-Dev/colink-unifed-crypten.git`.
+
+## Launch a benchmark
+- Generate the [exp/config.json](exp/config.json) from [wizard](https://unifed-wizard.colearn.cloud/). Remember to replace the `user_id` with the user id you got from previous steps.
+- Launch the benchmark via `python run_task.py`
+
+
+# Launch a benchmark (auto deployment on AWS with a controller)
 
 
 

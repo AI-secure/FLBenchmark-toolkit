@@ -7,5 +7,6 @@
 /flbenchmark.egg-info/
 /.vscode/
 /log/
-/tutorials/**/data/
-/tutorials/**/log/
+/exp/users/
+/exp/instances/
+

@@ -1,5 +1,5 @@
 #!/bin/bash
-LOCAL_IP="172.16.1.1"
+SERVER_IP="172.16.1.1"
 wget https://github.com/prometheus/node_exporter/releases/download/v1.6.0/node_exporter-1.6.0.linux-amd64.tar.gz
 tar xvfz node_exporter-*.*-amd64.tar.gz
 cd node_exporter-*.*-amd64
@@ -34,6 +34,6 @@ sudo usermod -aG docker ubuntu
 
 
 export BASH_ENV="$HOME/anaconda3/etc/profile.d/conda.sh"
-export COLINK_VT_PUBLIC_ADDR="$LOCAL_IP"
+export COLINK_VT_PUBLIC_ADDR="$SERVER_IP"
 
-nohup ./colink-server --address 0.0.0.0 --port 80 --mq-uri amqp://guest:guest@$LOCAL_IP:5672 --mq-api http://guest:guest@localhost:15672/api --mq-prefix colink-test-server --core-uri http://$LOCAL_IP:80 --pom-allow-external-source > output.log 2>&1 &
+nohup ./colink-server --address 0.0.0.0 --port 80 --mq-uri amqp://guest:guest@$SERVER_IP:5672 --mq-api http://guest:guest@localhost:15672/api --mq-prefix colink-test-server --core-uri http://$SERVER_IP:80 --pom-allow-external-source > output.log 2>&1 &
