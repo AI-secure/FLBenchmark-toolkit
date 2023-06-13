@@ -9,4 +9,5 @@
 /log/
 /exp/users/
 /exp/instances/
-
+/controller/servers/
+/controller/server_list.json
